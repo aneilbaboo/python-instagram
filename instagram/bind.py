@@ -156,6 +156,7 @@ def bind_method(**config):
                         api_responses = data
                     else:
                         api_responses = self.root_class.object_from_dictionary(data)
+                        api_responses.__json__ = data
                 elif self.response_type == 'empty':
                     pass
                 return api_responses, self._build_pagination_info(content_obj)
